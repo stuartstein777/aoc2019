@@ -46,7 +46,7 @@
 (defn intcode-computer [input]
   ((fn [input input-pos]
      (if (= (nth input input-pos) 99)
-       (nth input 0)
+       (first input)
        (let [output-pos (nth input (+ input-pos 3))
              input-val (nth input input-pos)
              opcode-1 (nth input (nth input (inc input-pos)))
