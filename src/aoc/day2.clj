@@ -48,11 +48,11 @@
      (if (= (nth input input-pos) 99)
        (first input)
        (let [output-pos (nth input (+ input-pos 3))
-              input-val (nth input input-pos)
-              opcode-1 (nth input (nth input (inc input-pos)))
-              opcode-2 (nth input (nth input (+ 2 input-pos)))]
+             input-val (nth input input-pos)
+             opcode-1 (nth input (nth input (inc input-pos)))
+             opcode-2 (nth input (nth input (+ 2 input-pos)))]
          (cond (= 1 input-val) (recur (update input output-pos (fn [_] (+ opcode-1 opcode-2))) (+ 4 input-pos))
-                (= 2 input-val) (recur (update input output-pos (fn [_] (* opcode-1 opcode-2))) (+ 4 input-pos))
+               (= 2 input-val) (recur (update input output-pos (fn [_] (* opcode-1 opcode-2))) (+ 4 input-pos))
                :else (first input))))) input 0))
 
 ;--- Part Two ---
