@@ -25,17 +25,11 @@
 (defn digits-are-ascending-left-to-right? [digits]
   (apply <= digits))
 
-(defn has-no-adjacent-matching-digits? [digits]
-  (if (= 1 (count digits))
-    false
-    (let [a (first digits)
-          b (second digits)]
-      (if (= a b)
-        true
-        (recur (rest digits))))))
+(defn has-adjacent-digits? [password]
+  (not= nil (some #(>= (second %) 2) (frequencies password))))
 
 (defn password-filter [password]
-  (and (has-no-adjacent-matching-digits? password) (digits-are-ascending-left-to-right? password)))
+  (and (has-adjacent-digits? password) (digits-are-ascending-left-to-right? password)))
 
 (count (filter password-filter (map #(for [n (str %)] (- (byte n) 48)) (range 197487 673252))))
 
