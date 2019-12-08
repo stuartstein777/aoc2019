@@ -89,7 +89,7 @@
          (set (get-intermediate-path [20 10] \U 5)))))
 
 
-;; Day 4 Part 1
+;; Day 4
 
 (deftest has-adjacent-digits-test-1
   (is (= true (has-no-adjacent-matching-digits? '(1 2 3 3 4)))))
@@ -102,3 +102,12 @@
 
 (deftest has-adjacent-digits-test-4
   (is (= false (has-no-adjacent-matching-digits? '(1 2 3 4 5)))))
+
+(deftest adjacent-digits-not-part-of-group-1
+  (is (= true (adjacent-digits-not-part-of-group? '(1 2 2 3 4)))))
+
+(deftest adjacent-digits-not-part-of-group-2
+  (is (= true (adjacent-digits-not-part-of-group? '(1 1 1 1 2 2)))))
+
+(deftest adjacent-digits-not-part-of-group-3
+  (is (= false (adjacent-digits-not-part-of-group? '(1 1 1 1 2 3)))))
