@@ -2,10 +2,11 @@
   (:require [clojure.test :refer :all]
             [aoc.day1 :refer :all]
             [aoc.day2 :refer :all]
-            [aoc.day3 :refer :all]))
+            [aoc.day3 :refer :all]
+            [aoc.day4 :refer :all]))
 
 ;; (require 'aoc.core-test :reload-all)
-;; (run-tests 'aoc.core-tests)
+;; (run-tests 'aoc.core-test)
 
 ;; Day 1
 
@@ -86,3 +87,18 @@
   (testing "Should get the correct path")
   (is (= (set [[20 11] [20 12] [20 13] [20 14] [20 15]])
          (set (get-intermediate-path [20 10] \U 5)))))
+
+
+;; Day 4 Part 1
+
+(deftest has-adjacent-digits-test-1
+  (is (= true (has-no-adjacent-matching-digits? '(1 2 3 3 4)))))
+
+(deftest has-adjacent-digits-test-2
+  (is (= true (has-no-adjacent-matching-digits? '(1 1 2 3 4)))))
+
+(deftest has-adjacent-digits-test-3
+  (is (= true (has-no-adjacent-matching-digits? '(1 2 3 4 4)))))
+
+(deftest has-adjacent-digits-test-4
+  (is (= false (has-no-adjacent-matching-digits? '(1 2 3 4 5)))))
