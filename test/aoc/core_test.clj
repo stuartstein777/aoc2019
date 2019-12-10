@@ -3,7 +3,8 @@
             [aoc.day1 :refer :all]
             [aoc.day2 :refer :all]
             [aoc.day3 :refer :all]
-            [aoc.day4 :refer :all]))
+            [aoc.day4 :refer :all]
+            [aoc.day8 :refer :all]))
 
 ;; (require 'aoc.core-test :reload-all)
 ;; (run-tests 'aoc.core-test)
@@ -92,16 +93,16 @@
 ;; Day 4
 
 (deftest has-adjacent-digits-test-1
-  (is (= true (has-no-adjacent-matching-digits? '(1 2 3 3 4)))))
+  (is (= true (has-adjacent-digits? '(1 2 3 3 4)))))
 
 (deftest has-adjacent-digits-test-2
-  (is (= true (has-no-adjacent-matching-digits? '(1 1 2 3 4)))))
+  (is (= true (has-adjacent-digits? '(1 1 2 3 4)))))
 
 (deftest has-adjacent-digits-test-3
-  (is (= true (has-no-adjacent-matching-digits? '(1 2 3 4 4)))))
+  (is (= true (has-adjacent-digits? '(1 2 3 4 4)))))
 
 (deftest has-adjacent-digits-test-4
-  (is (= false (has-no-adjacent-matching-digits? '(1 2 3 4 5)))))
+  (is (= false (has-adjacent-digits? '(1 2 3 4 5)))))
 
 (deftest adjacent-digits-not-part-of-group-1
   (is (= true (adjacent-digits-not-part-of-group? '(1 2 2 3 4)))))
@@ -111,3 +112,8 @@
 
 (deftest adjacent-digits-not-part-of-group-3
   (is (= false (adjacent-digits-not-part-of-group? '(1 1 1 1 2 3)))))
+
+;; Day 8
+
+(deftest get-pixel-1
+  (is (= '(\░ \▓ \▓ \░) (map ( partial get-pixel (partition 4 "0222112222120000")) (range 4)))))
